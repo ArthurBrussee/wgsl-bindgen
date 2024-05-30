@@ -17,7 +17,7 @@ pub fn consts_items(invoking_entry_module: &str, module: &naga::Module) -> Vec<R
       let name = Ident::new(&rust_item_path.item_name, Span::call_site());
 
       // TODO: Add support for f64 and f16 once naga supports them.
-      let type_and_value = match &module.const_expressions[t.init] {
+      let type_and_value = match &module.global_expressions[t.init] {
         naga::Expression::Literal(literal) => match literal {
           naga::Literal::F64(v) => Some(quote!(f32 = #v)),
           naga::Literal::F32(v) => Some(quote!(f32 = #v)),
@@ -27,6 +27,7 @@ pub fn consts_items(invoking_entry_module: &str, module: &naga::Module) -> Vec<R
           naga::Literal::I64(v) => Some(quote!(i64 = #v)),
           naga::Literal::AbstractInt(v) => Some(quote!(i64 = #v)),
           naga::Literal::AbstractFloat(v) => Some(quote!(f64 = #v)),
+          naga::Literal::U64(v) => Some(quote!(u64 = #v)),
         },
         _ => None,
       }?;
