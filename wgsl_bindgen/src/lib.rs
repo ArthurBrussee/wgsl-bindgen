@@ -36,7 +36,7 @@
 //! }
 //! ```
 
-#[allow(dead_code, unused)]
+#![allow(dead_code, unused)]
 extern crate wgpu_types as wgpu;
 
 use bevy_util::SourceWithFullDependenciesResult;
@@ -125,11 +125,11 @@ fn create_rust_bindings(
 
     // Write all the structs, including uniforms and entry function inputs.
     mod_builder
-      .add_items(structs::structs_items(&mod_name, naga_module, options))
+      .add_items(structs::structs_items(mod_name, naga_module, options))
       .unwrap();
 
     mod_builder
-      .add_items(consts::consts_items(&mod_name, naga_module))
+      .add_items(consts::consts_items(mod_name, naga_module))
       .unwrap();
 
     mod_builder.add(mod_name, vertex_struct_methods(naga_module));
@@ -162,7 +162,7 @@ fn create_rust_bindings(
     shader_registry::build_shader_registry(&entries, options.shader_source_type);
 
   let output = quote! {
-    #![allow(unused, non_snake_case, non_camel_case_types, non_upper_case_globals)]
+    #![allow(unused, non_snake_case, non_camel_case_types, non_upper_case_globals, clippy::all)]
 
     #shader_registry
     #mod_token_stream

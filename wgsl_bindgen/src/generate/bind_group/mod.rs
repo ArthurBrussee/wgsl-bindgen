@@ -83,7 +83,7 @@ impl<'a> BindGroupBuilder<'a> {
             }
 
             pub fn from_bindings(device: &wgpu::Device, bindings: #bind_group_layout_name) -> Self {
-                let bind_group_layout = Self::get_bind_group_layout(&device);
+                let bind_group_layout = Self::get_bind_group_layout(device);
                 let entries = bindings.entries();
                 let bind_group = device.create_bind_group(&wgpu::BindGroupDescriptor {
                     label: Some(#bind_group_label),
@@ -551,7 +551,7 @@ mod tests {
                       device.create_bind_group_layout(&Self::LAYOUT_DESCRIPTOR)
                   }
                   pub fn from_bindings(device: &wgpu::Device, bindings: WgpuBindGroupLayout0) -> Self {
-                      let bind_group_layout = Self::get_bind_group_layout(&device);
+                      let bind_group_layout = Self::get_bind_group_layout(device);
                       let entries = bindings.entries();
                       let bind_group = device
                           .create_bind_group(
@@ -604,7 +604,7 @@ mod tests {
                       device.create_bind_group_layout(&Self::LAYOUT_DESCRIPTOR)
                   }
                   pub fn from_bindings(device: &wgpu::Device, bindings: WgpuBindGroupLayout1) -> Self {
-                      let bind_group_layout = Self::get_bind_group_layout(&device);
+                      let bind_group_layout = Self::get_bind_group_layout(device);
                       let entries = bindings.entries();
                       let bind_group = device
                           .create_bind_group(
@@ -905,7 +905,7 @@ mod tests {
                       device.create_bind_group_layout(&Self::LAYOUT_DESCRIPTOR)
                   }
                   pub fn from_bindings(device: &wgpu::Device, bindings: WgpuBindGroupLayout0) -> Self {
-                      let bind_group_layout = Self::get_bind_group_layout(&device);
+                      let bind_group_layout = Self::get_bind_group_layout(device);
                       let entries = bindings.entries();
                       let bind_group = device
                           .create_bind_group(
@@ -972,7 +972,7 @@ mod tests {
                       device.create_bind_group_layout(&Self::LAYOUT_DESCRIPTOR)
                   }
                   pub fn from_bindings(device: &wgpu::Device, bindings: WgpuBindGroupLayout1) -> Self {
-                      let bind_group_layout = Self::get_bind_group_layout(&device);
+                      let bind_group_layout = Self::get_bind_group_layout(device);
                       let entries = bindings.entries();
                       let bind_group = device
                           .create_bind_group(
@@ -1076,7 +1076,7 @@ mod tests {
                       device.create_bind_group_layout(&Self::LAYOUT_DESCRIPTOR)
                   }
                   pub fn from_bindings(device: &wgpu::Device, bindings: WgpuBindGroupLayout0) -> Self {
-                      let bind_group_layout = Self::get_bind_group_layout(&device);
+                      let bind_group_layout = Self::get_bind_group_layout(device);
                       let entries = bindings.entries();
                       let bind_group = device
                           .create_bind_group(
@@ -1176,7 +1176,7 @@ mod tests {
                       device.create_bind_group_layout(&Self::LAYOUT_DESCRIPTOR)
                   }
                   pub fn from_bindings(device: &wgpu::Device, bindings: WgpuBindGroupLayout0) -> Self {
-                      let bind_group_layout = Self::get_bind_group_layout(&device);
+                      let bind_group_layout = Self::get_bind_group_layout(device);
                       let entries = bindings.entries();
                       let bind_group = device
                           .create_bind_group(
